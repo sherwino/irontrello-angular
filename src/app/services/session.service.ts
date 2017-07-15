@@ -29,4 +29,14 @@ export class SessionService {
         .then(res => res.json());
   }
 
+  signup(userInfo) {
+      return this.myHttpThang
+        .post(
+          this.baseUrl + '/api/signup',
+          userInfo
+        )
+        .toPromise()
+        .then(res => res.json());
+  }
+
 }
