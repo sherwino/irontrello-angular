@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+.error {
+  color: crimson;
+  border-radius: 3px;
+  border: 2px solid crimson;
+  padding: 10px;
+}
