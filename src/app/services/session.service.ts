@@ -11,7 +11,11 @@ export class SessionService {
   ) { }
 
   checkLogin() {
-      return this.myHttpThang.get(this.baseUrl + '/api/checklogin')
+      return this.myHttpThang
+        .get(
+          this.baseUrl + '/api/checklogin',
+          { withCredentials: true }
+        )
         .toPromise()
         .then(res => res.json());
   }
@@ -23,7 +27,8 @@ export class SessionService {
           {
             loginEmail: email,
             loginPassword: password
-          }
+          },
+          { withCredentials: true }
         )
         .toPromise()
         .then(res => res.json());
@@ -33,7 +38,8 @@ export class SessionService {
       return this.myHttpThang
         .post(
           this.baseUrl + '/api/signup',
-          userInfo
+          userInfo,
+          { withCredentials: true }
         )
         .toPromise()
         .then(res => res.json());
