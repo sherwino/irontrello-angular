@@ -19,4 +19,15 @@ export class ListService {
         .toPromise()
         .then(res => res.json());
   }
+
+  createList(title) {
+      return this.httpThang
+        .post(
+          this.baseUrl + '/api/lists',
+          { listTitle: title },
+          { withCredentials: true }
+        )
+        .toPromise()
+        .then(res => res.json());
+  }
 }
