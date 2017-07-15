@@ -3,9 +3,11 @@ import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class SessionService {
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = environment.apiUrl;
 
   private loggedInSource = new Subject<any>();
 
