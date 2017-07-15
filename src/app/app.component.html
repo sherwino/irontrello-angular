@@ -1,5 +1,11 @@
 <header>
   <h1> Irontrello </h1>
+
+  <nav>
+    <button *ngIf="isLoggedIn" (click)="logMeOut()">
+      Log Out
+    </button>
+  </nav>
 </header>
 
 

@@ -23,13 +23,14 @@ export class LogInComponent implements OnInit {
   }
 
   submitLogin() {
-    this.sessionThang.login(this.formEmail, this.formPassword)
-      .then(() => {
-          this.routerThang.navigate(['/lists']);
-      })
-      .catch((errResponse) => {
-          const apiInfo = errResponse.json();
-          this.errorMessage = apiInfo.message;
-      });
+      this.sessionThang.login(this.formEmail, this.formPassword)
+        .then((userFromApi) => {
+            this.routerThang.navigate(['/lists']);
+            this.sessionThang.loggedIn(userFromApi);
+        })
+        .catch((errResponse) => {
+            const apiInfo = errResponse.json();
+            this.errorMessage = apiInfo.message;
+        });
   }
 }
