@@ -1,3 +1,13 @@
-<p>
-  lists-page works!
-</p>
+<h2> My Lists </h2>
+
+<ul class="list-of-lists">
+  <li class="list-container" *ngFor="let oneList of myLists">
+    <h3> {{ oneList.title }} </h3>
+
+    <ul>
+      <li class="card" *ngFor="let oneCard of oneList.cards">
+        <p> {{ oneCard.title }} </p>
+      </li>
+    </ul>
+  </li>
+</ul>
