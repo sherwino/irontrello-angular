@@ -22,4 +22,12 @@ export class CardService {
         .toPromise()
         .then(res => res.json())
   }
+
+    remove(id) {
+    return this.httpThang.delete(`${this.baseUrl}/api/cards/del/${id}`,
+      { withCredentials: true }
+      )
+      .toPromise()
+      .then(apiResponse => apiResponse.json())
+  }
 }

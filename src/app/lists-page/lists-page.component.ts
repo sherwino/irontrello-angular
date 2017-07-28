@@ -12,7 +12,7 @@ export class ListsPageComponent implements OnInit {
   myLists: any[] = [];
 
   newListTitle: string;
-
+  errorMessage: string;
   newCardTitles: string[] = [];
 
   constructor(
@@ -53,5 +53,25 @@ export class ListsPageComponent implements OnInit {
             alert('Card create error 🐋');
         });
   }
+
+  delete(card) {
+  this.cardThang.remove(card._id)
+    .then(() => {})
+    .catch((err) => {
+      this.errorMessage = 'Could not retrieve item details. Try again later.';
+    });
+  console.log(card.title + ' delete request sent');
+}
+
+// update() {
+//   this.cardThang.shoppingItems()
+//   .then( fetchedData => {
+//     if (JSON.stringify(this.myItems) != JSON.stringify(fetchedData)) {
+//       this.myItems = fetchedData
+//     }
+//   })
+//   .catch(err => console.log(err));
+// }
+
 
 }
