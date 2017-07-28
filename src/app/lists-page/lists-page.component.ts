@@ -54,8 +54,8 @@ export class ListsPageComponent implements OnInit {
         });
   }
 
-  delete(card) {
-  this.cardThang.remove(card._id)
+  delete(list, card) {
+  this.cardThang.remove(list._id, card._id)
     .then(() => {})
     .catch((err) => {
       this.errorMessage = 'Could not retrieve item details. Try again later.';

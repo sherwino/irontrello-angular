@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class CardService {
   baseUrl: string = environment.apiUrl;
+  cardId: string;
+  listId: string;
 
   constructor(
     private httpThang: Http
@@ -23,11 +27,12 @@ export class CardService {
         .then(res => res.json())
   }
 
-    remove(id) {
-    return this.httpThang.delete(`${this.baseUrl}/api/cards/del/${id}`,
+    remove(listId, cardId) {
+    return this.httpThang.post(`${this.baseUrl}/api/lists/${listId}/cards/del`,
+      { cardId: cardId},
       { withCredentials: true }
       )
       .toPromise()
-      .then(apiResponse => apiResponse.json())
+      .then(res => res.json())
   }
 }
