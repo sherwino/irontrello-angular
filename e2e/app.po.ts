@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class IrontrelloAngularPage {
+export class Todo-AppAngularPage {
   navigateTo() {
     return browser.get('/');
   }

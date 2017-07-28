@@ -1,10 +1,10 @@
-import { IrontrelloAngularPage } from './app.po';
+import { Todo-AppAngularPage } from './app.po';
 
-describe('irontrello-angular App', () => {
-  let page: IrontrelloAngularPage;
+describe('todo-app-angular App', () => {
+  let page: Todo-AppAngularPage;
 
   beforeEach(() => {
-    page = new IrontrelloAngularPage();
+    page = new Todo-AppAngularPage();
   });
 
   it('should display welcome message', () => {
