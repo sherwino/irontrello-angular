@@ -56,11 +56,19 @@ export class ListsPageComponent implements OnInit {
 
   delete(list, card) {
   this.cardThang.remove(list._id, card._id)
-    .then(() => {})
+    .then((res) => {console.log(res)})
     .catch((err) => {
       this.errorMessage = 'Could not retrieve item details. Try again later.';
     });
+
   console.log(card.title + ' delete request sent');
+  this.listThang.lists()
+    .then((listsFromApi) => {
+        this.myLists = listsFromApi;
+    })
+    .catch((errResponse) => {
+        alert('List error 🐋');
+    });
 }
 
 // update() {
